@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style2.css">
+
+    <title> LENS </title>
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: url('2LensFull.gif');
+            background-size: contain;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+    </style>
+  
+
+</head>
+
+<style>
+  /* Basic styling */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #ffbe8b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  
+  /* Button container styling */
+  .button-container {
+    position: relative;
+    right: -15%;
+    bottom: -0.5%;
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+
+  /* Styling for both buttons */
+  .button {
+    width: 90px;
+    height: 88px;
+    background-image: url('info.png'); /* Normal image for first button */
+    background-size: contain;
+    transition: transform 0.2s ease, filter 0.2s ease;
+  }
+
+  /* Hover effect for the first button */
+  .button:hover {
+    transform: scale(1.3); /* Expand on hover */
+    filter: brightness(1.2);
+    cursor: url('Cursor2bright.png'), auto;
+  }
+
+  /* Pop-up image styling */
+  .popup {
+    display: none;
+    position: fixed;
+    bottom: -70%; /* Start a little higher */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: bottom 0.5s ease; /* Slide in effect */
+  }
+
+  .popup img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  /* Close button styling */
+  .popup .close-btn {
+    position: absolute;
+    top: -30px;
+    right: -20px;
+    background-color: transparent;
+    color: rgb(240, 28, 28);
+    font-size: 50px;
+    cursor: url('Cursor2bright.png'), auto;
+    border: none;
+    transition: color 0.3s ease;
+  }
+
+  /* Close button hover effect */
+  .popup .close-btn:hover {
+    color: rgb(255, 244, 244); /* Change color on hover */
+  }
+
+  /* Position of first button */
+  #button1 {
+    margin-bottom: 15px; /* Space between the buttons */
+    margin-left: 70px;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="button-container">
+  <!-- First Button -->
+  <div class="button" id="button1"></div>
+</div>
+
+<!-- First Popup Image -->
+<div class="popup" id="popup1">
+  <button class="close-btn" id="closePopup1">&times;</button>
+  <img src="Lensnote.png" alt="Popup Image 1">
+</div>
+
+<!-- Audio -->
+<audio id="hoverSound" src="infohover.mp3"></audio>
+<audio id="clickSound" src="infoslide.mp3"></audio>
+<audio id="closeSound" src="infounslide.mp3"></audio>
+
+<script>
+  // Function for handling button click, hover, and pop-up interaction
+  function setupButton(buttonId, popupId, closeButtonId, normalImage, hoverImage) {
+    const button = document.getElementById(buttonId);
+    const popup = document.getElementById(popupId);
+    const closePopup = document.getElementById(closeButtonId);
+    const hoverSound = document.getElementById('hoverSound');
+    const clickSound = document.getElementById('clickSound');
+    const closeSound = document.getElementById('closeSound');
+
+    // Button hover sound and image change
+    button.addEventListener('mouseenter', () => {
+      hoverSound.play();
+      button.style.backgroundImage = `url('${hoverImage}')`; // Hover image
+    });
+
+    // Reset button image when mouse leaves
+    button.addEventListener('mouseleave', () => {
+      button.style.backgroundImage = `url('${normalImage}')`; // Normal image
+    });
+
+    // Button click sound and popup slide-in
+    button.addEventListener('click', () => {
+      clickSound.play();
+      popup.style.display = 'flex';
+      setTimeout(() => {
+        popup.style.bottom = '20%'; // Slide in to a more appropriate position
+      }, 10);
+    });
+
+    // Close popup when close button is clicked and play close sound
+    closePopup.addEventListener('click', () => {
+      closeSound.play();
+      popup.style.bottom = '-70%'; // Slide back out from a higher position
+      setTimeout(() => {
+        popup.style.display = 'none';
+      }, 500); // Wait for the slide-out animation
+    });
+  }
+
+  // Setup the functionality for the first button and pop-up
+  setupButton('button1', 'popup1', 'closePopup1', 'info.png', 'info2.png');
+
+</script>
+
+
+</body>
+
+<head>
+
+  <style>
+
+    /* Full screen white overlay for fade effect */
+    .fade-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      transition: opacity 1.5s ease-out;
+      z-index: 10000; /* Ensure it covers everything */
+    }
+
+    /* Pop-up container */
+    .popup0 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+      z-index: 9999;
+    }
+
+   /* Pop-up image */
+   .popup0 img {
+      max-width: 150%;
+      max-height: 150%;
+      width: 640px;
+      height: 360px;
+      border-radius: 20px;
+      position: relative; /* Make sure the button is positioned relative to the image */
+      z-index: 1; /* Image is behind the close button */
+    }
+
+    /* Close button for the pop-up */
+    .close-btn0 {
+      position: absolute;
+      top: 50; /* Position the button above the image in the z-index */
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 60px;
+      color: rgb(248, 210, 210);
+      background: transparent;
+      border: none;
+      cursor: url('Cursor2bright.png'), auto;
+      z-index: 2; /* Ensure the close button is above the image */
+      transition: color 0.3s ease;
+    }
+
+    .popup0 .close-btn0:hover {
+      color: rgb(255, 255, 255); /* Change color on hover */
+    
+  </style>
+</head>
+<body>
+
+  <!-- Pop-up with image -->
+  <div class="popup0" id="popup0">
+    <button class="close-btn0" id="closePopup0">&times;</button>
+    <img src="Beginlens.png" alt="Pop-up0 Image0">
+  </div>
+
+  <!-- White overlay for fade effect -->
+  <div class="fade-overlay" id="fadeOverlay"></div>
+
+  <!-- Music -->
+  <audio id="music0" src="lensmusic.mp3"></audio>
+
+  <script>
+    
+    // When the page loads, the pop-up will appear
+    window.onload = function() {
+      const fadeOverlay = document.getElementById('fadeOverlay');
+      const popup = document.getElementById('popup0');
+      const closePopup = document.getElementById('closePopup0');
+      const music = document.getElementById('music0');
+      const websiteContent = document.getElementById('websiteContent');
+
+            // Wait for the page to load before fading out the overlay
+            setTimeout(function() {
+        fadeOverlay.style.opacity = '0'; // Fade out the white overlay
+        fadeOverlay.style.pointerEvents = 'none'; // Disable interaction with the overlay after fade
+      }, 1000); // Start fade after 1 second delay
+
+      // Close the pop-up and play music when close button is clicked
+      closePopup.addEventListener('click', function() {
+        popup.style.display = 'none'; // Hide the pop-up
+        music.play(); // Play the music
+      });
+    }
+  </script>
+
+</body>
+
+<body>
+
+  <!-- Image button -->
+  <img id="magic-button" src="goforward.png" alt="Magic Button" />
+
+  <!-- White fade-out overlay -->
+  <div id="fade-overlay"></div>
+
+  <!-- Audio for hover and click -->
+  <audio id="hover-sound" src="hovercute.mp3" preload="auto"></audio>
+  <audio id="click-sound" src="shine.mp3" preload="auto"></audio>
+
+  <script src="script2.js"></script>
+</body>
+
+<body>
+
+<!-- Image button -->
+<img id="magic-button2" src="goback.png" alt="Magic2 Button2" />
+
+<!-- White fade-out2 overlay -->
+<div id="fade-overlay2"></div>
+
+<!-- Audio for hover and click -->
+<audio id="hover-sound" src="hovercute.mp3" preload="auto"></audio>
+<audio id="click-sound" src="shine.mp3" preload="auto"></audio>
+
+<script src="script2.js"></script>
+</body>
+
+</html>

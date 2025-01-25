@@ -1,0 +1,58 @@
+body {
+    cursor: url('Cursorbright.png'), auto;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #461a1d;
+    overflow: hidden;
+  }
+  
+  #magic-button {
+    width: 100px; /* Adjust to the size of your image */
+    cursor: url('Cursor2bright.png'), auto;
+    position: absolute;
+    bottom: 55%;
+    transition: all 0.3s ease;
+    z-index: 10; /* Ensure it's in front of the glow effect */
+  }
+  
+  #magic-button:hover {
+    transform: scale(1.3);
+  }
+  
+  #magic-button:active {
+    transform: scale(1);
+  }
+  
+  /* Fade-out overlay styling */
+  #fade-overlay {
+    position: fixed; /* Fixed positioning to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 0;
+    pointer-events: none; /* So it doesn’t interfere with clicking the button */
+    z-index: 20; /* Higher than the button */
+    transition: opacity 1s ease-out;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+  
+  
+  
+  
+  
+
+  

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style6.css">
+
+
+    <title> THE END </title>
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: url('6endFULL.png');
+            background-size: contain;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+    </style>
+  
+
+</head>
+
+<style>
+  /* Basic styling */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #7b3438;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+</style>
+
+
+<head>
+  <link rel="stylesheet" href="style6.css">
+</head>
+
+<style>
+  body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+  }
+
+  .button-container {
+      position: relative;
+      width: 50px;
+      height: 50px;
+      margin: 1px auto;
+      cursor: url('Cursor2bright.png'), auto;
+      background-color: transparent;
+      position: relative;
+      left: 33%;
+      top: 25%;
+  }
+
+  .image-button {
+      width: 100%;
+      height: 100%;
+      background-image: url('Blueheart.png'); /* Default image */
+      background-size: cover;
+      background-position: center;
+      border: none;
+      outline: none;
+      background-color: transparent;
+  }
+
+  .image-button:hover {
+      background-image: url('info2.png'); /* Image when hovered */
+      cursor: url('Cursor2bright.png'), auto;
+  }
+
+  .image-button:active {
+      background-image: url('noheart.png'); /* Image when clicked */
+      cursor: url('Cursor2bright.png'), auto;
+  }
+
+  .gif-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: transparent;
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .gif-overlay img {
+      max-width: 100.3%;
+      max-height: 100.3%;
+  }
+
+</style>
+</head>
+<body>
+<div class="button-container">
+  <button class="image-button" id="imageButton"></button>
+</div>
+
+<div class="gif-overlay" id="gifOverlay">
+  <img src="6endFULL.gif" alt="GIF" id="gifImage">
+</div>
+
+<audio id="hoverSound" src="infohover.mp3" preload="auto"></audio>
+<audio id="clickSound" src="endingsound.mp3" preload="auto"></audio>
+
+<script>
+  const imageButton = document.getElementById('imageButton');
+  const gifOverlay = document.getElementById('gifOverlay');
+  const hoverSound = document.getElementById('hoverSound');
+  const clickSound = document.getElementById('clickSound');
+
+  // Play hover sound when hovering over the button
+  imageButton.addEventListener('mouseenter', () => {
+      hoverSound.play();
+  });
+
+  // Play click sound when the button is clicked
+  imageButton.addEventListener('click', () => {
+      clickSound.play();
+      // Show the GIF overlay when the button is clicked
+      gifOverlay.style.display = 'flex';
+
+  });
+</script>
+</body>
+
+<head>
+
+  <style>
+
+    /* Full screen white overlay for fade effect */
+    .fade-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      transition: opacity 1.5s ease-out;
+      z-index: 10000; /* Ensure it covers everything */
+    }
+
+    /* Pop-up container */
+    .popup0 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+      z-index: 9999;
+    }
+
+   /* Pop-up image */
+   .popup0 img {
+      max-width: 150%;
+      max-height: 150%;
+      width: 640px;
+      height: 360px;
+      border-radius: 20px;
+      position: relative; /* Make sure the button is positioned relative to the image */
+      z-index: 1; /* Image is behind the close button */
+    }
+
+    /* Close button for the pop-up */
+    .close-btn0 {
+      position: absolute;
+      top: 50; /* Position the button above the image in the z-index */
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 60px;
+      color: rgb(248, 210, 210);
+      background: transparent;
+      border: none;
+      cursor: url('Cursor2bright.png'), auto;
+      z-index: 2; /* Ensure the close button is above the image */
+      transition: color 0.3s ease;
+    }
+
+    .popup0 .close-btn0:hover {
+      color: rgb(255, 255, 255); /* Change color on hover */
+    
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Pop-up with image -->
+  <div class="popup0" id="popup0">
+    <button class="close-btn0" id="closePopup0">&times;</button>
+    <img src="Beginend.png" alt="Pop-up0 Image0">
+  </div>
+
+  <!-- White overlay for fade effect -->
+  <div class="fade-overlay" id="fadeOverlay"></div>
+
+  <!-- Music -->
+  <audio id="music0" src="endmusic.mp3"></audio>
+
+  <script>
+    
+    // When the page loads, the pop-up will appear
+    window.onload = function() {
+      const fadeOverlay = document.getElementById('fadeOverlay');
+      const popup = document.getElementById('popup0');
+      const closePopup = document.getElementById('closePopup0');
+      const music = document.getElementById('music0');
+      const websiteContent = document.getElementById('websiteContent');
+
+            // Wait for the page to load before fading out the overlay
+            setTimeout(function() {
+        fadeOverlay.style.opacity = '0'; // Fade out the white overlay
+        fadeOverlay.style.pointerEvents = 'none'; // Disable interaction with the overlay after fade
+      }, 1000); // Start fade after 1 second delay
+
+      // Close the pop-up and play music when close button is clicked
+      closePopup.addEventListener('click', function() {
+        popup.style.display = 'none'; // Hide the pop-up
+        music.play(); // Play the music
+      });
+    }
+  </script>
+
+</body>
+
+<body>
+
+<!-- Image button -->
+<img id="magic-button" src="replay.png" alt="Magic Button" />
+
+<!-- White fade-out overlay -->
+<div id="fade-overlay"></div>
+
+<!-- Audio for hover and click -->
+<audio id="hover-sound" src="hovercute.mp3" preload="auto"></audio>
+<audio id="click-sound" src="shine.mp3" preload="auto"></audio>
+
+<script src="script6.js"></script>
+
+</body>
+
+</html>
