@@ -42,8 +42,8 @@
   /* Button container styling */
   .button-container {
     position: relative;
-    right: -16%;
-    bottom: -16%;
+    right: -9%;
+    bottom: -17%;
     transition: transform 0.3s ease, filter 0.3s ease;
   }
 
@@ -51,11 +51,13 @@
   .button {
     width: 90px;
     height: 88px;
-    background-image: url('play.png'); /* Normal image for first button */
+    background-image: url('info.png'); /* Normal image for first button */
     background-size: contain;
     transition: transform 0.2s ease, filter 0.2s ease;
-    background-repeat: no-repeat;
+    
+    /*border: 10px solid blue;*/
   }
+
 
   /* Hover effect for the first button */
   .button:hover {
@@ -89,10 +91,10 @@
   /* Close button styling */
   .popup .close-btn {
     position: absolute;
-    top: -30px;
-    right: -20px;
+    top: 20px;
+    right: 60px;
     background-color: transparent;
-    color: rgb(240, 28, 28);
+    color: rgb(155, 0, 0);
     font-size: 50px;
     cursor: url('Cursor2bright.png'), auto;
     border: none;
@@ -101,16 +103,13 @@
 
   /* Close button hover effect */
   .popup .close-btn:hover {
-    color: rgb(255, 244, 244); /* Change color on hover */
+    color: rgb(255, 255, 255); /* Change color on hover */
   }
 
   /* Position of first button */
   #button1 {
     margin-bottom: 15px; /* Space between the buttons */
     margin-left: 70px;
-    width: 180px;
-    height: 180px;
-    border: solid 2px blue;
   }
 
 </style>
@@ -240,6 +239,7 @@
     .popup0 .close-btn0:hover {
       color: rgb(255, 255, 255); /* Change color on hover */
     }
+    
   </style>
 </head>
 <body>
